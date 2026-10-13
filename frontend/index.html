@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctyn Academy</title>
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <div class="logo-wrap">
+            <img src="assets/doctyn-logo.jpg" class="logo" alt="Doctyn Academy">
+        </div>
+
+        <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input type="text" placeholder='Search for "Courses"'>
+        </div>
+
+        <nav class="main-nav">
+            <a href="#" class="active">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#">Technology Courses</a>
+            <a href="#partners">Our Partners</a>
+            <a href="#" onclick="openGrok(event)" class="grok-link">Grok AI</a>
+        </nav>
+
+        <button class="lms-btn">
+            Login To LMS
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section id="homePage">
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <div class="hero-image">
+
+                <div class="hero-overlay">
+
+                    <p class="hero-small">
+                        Fast-Track Your Medical Career With
+                    </p>
+
+                    <h1 class="hero-image-title">
+                        India’s Most Trusted<br>
+                        Upskilling Platform for Doctors
+                    </h1>
+
+                    <div class="yellow-line"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-right">
+
+            <div class="green-accent">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <h1>
+                <span>Unlock</span> your full potential as a<br>
+                Doctor
+            </h1>
+
+            <h2>
+                with real-world clinical and management skills.
+            </h2>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+                    Explore Courses
+                </button>
+
+                <button class="outline-btn" onclick="openGrok(event)">
+                    Need Expert Help?
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="partner-area" id="partners">
+
+        <div class="partner-strip">
+
+            <h3>Our Partners:</h3>
+
+            <div class="partner-logo">
+                <strong>Faculty of</strong>
+                <span>Intensive<br>Care Medicine</span>
+            </div>
+
+            <div class="partner-logo">
+                <strong>Royal College of</strong>
+                <span>Physicians & Surgeons</span>
+            </div>
+
+            <div class="partner-logo large">
+                <strong>elfh</strong>
+                <span>elearning for healthcare</span>
+            </div>
+
+            <div class="partner-logo large">
+                <strong>NHS</strong>
+                <span>England</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="courses-section" id="courses">
+
+        <h2>Our Courses</h2>
+
+        <p class="course-intro">
+            Advance your career with fellowship courses after MBBS,
+            offering expert guidance, flexible learning, and hands-on
+            clinical experience for doctors.
+        </p>
+
+
+        <div class="course-grid">
+
+            <div class="course-card">
+                <div class="course-code">FCCM</div>
+                <h3>Fellowship in Critical Care Medicine</h3>
+                <p>
+                    Structured critical care learning with supervised
+                    clinical exposure.
+                </p>
+                <button onclick="openGrokWithTopic('Critical Care')">
+                    Ask AI About This Course
+                </button>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-code">FIM</div>
+                <h3>Fellowship in Internal Medicine</h3>
+                <p>
+                    Develop structured clinical reasoning and practical
+                    Internal Medicine knowledge.
+                </p>
+                <button onclick="openGrokWithTopic('Internal Medicine')">
+                    Ask AI About This Course
+                </button>
+            </div>
+
+
+            <div class="course-card">
+                <div class="course-code">FDM</div>
+                <h3>Fellowship in Diabetes Management</h3>
+                <p>
+                    Structured learning focused on contemporary diabetes
+                    management.
+                </p>
+                <button onclick="openGrokWithTopic('Diabetes')">
+                    Ask AI About This Course
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+
+<section id="grokPage" class="grok-page hidden">
+
+    <div class="grok-wrapper">
+
+        <button class="back-btn" onclick="closeGrok()">
+            ← Back to Doctyn
+        </button>
+
+
+        <div class="grok-header">
+
+            <div class="grok-icon">
+                ✦
+            </div>
+
+            <div>
+                <span class="grok-label">
+                    DOCTYN AI ASSISTANT
+                </span>
+
+                <h1>
+                    How can we help you?
+                </h1>
+
+                <p>
+                    Ask about Doctyn programs, course suitability,
+                    eligibility or learning pathways.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="suggestions">
+
+            <button onclick="askSuggestion('Which Critical Care fellowship is suitable for a working MBBS doctor?')">
+                Critical Care
+            </button>
+
+            <button onclick="askSuggestion('Tell me about Internal Medicine fellowship')">
+                Internal Medicine
+            </button>
+
+            <button onclick="askSuggestion('Which course is suitable for a doctor interested in Diabetes?')">
+                Diabetes Management
+            </button>
+
+            <button onclick="askSuggestion('Tell me about Emergency Medicine pathways')">
+                Emergency Medicine
+            </button>
+
+        </div>
+
+
+        <div class="chat-card">
+
+            <div id="chatMessages" class="chat-messages">
+
+                <div class="bot-message">
+
+                    <div class="message-avatar">
+                        ✦
+                    </div>
+
+                    <div class="message-content">
+
+                        <strong>Doctyn AI</strong>
+
+                        <p>
+                            Hello Doctor. Tell me your qualification,
+                            area of interest and whether you are currently
+                            working. I can help identify a relevant Doctyn
+                            learning pathway.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input-row">
+
+                <textarea
+                    id="chatInput"
+                    placeholder="Ask about a course or describe what you're looking for..."
+                ></textarea>
+
+                <button onclick="sendChat()">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<button class="grok-floating" onclick="openGrok(event)">
+    ✦
+</button>
+
+
+<button class="whatsapp-floating">
+    ☎
+</button>
+
+
+<script src="script.js?v=3"></script>
+
+</body>
+</html>

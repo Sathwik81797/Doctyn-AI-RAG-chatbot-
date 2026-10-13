@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fellowship in Critical Care Medicine | Doctyn Academy</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6f9fc;
+            color: #18233a;
+        }
+
+        .hero {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #5a6475;
+            max-width: 760px;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .stat {
+            background: #eef5ff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 45px 20px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid #e4e9f0;
+        }
+
+        .form-box {
+            background: white;
+            max-width: 620px;
+            margin: auto;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #e4e9f0;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccd5e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2468e5;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="container">
+        <div style="font-weight:700;color:#2468e5;">
+            DOCTYN ACADEMY
+        </div>
+
+        <h1>Fellowship in Critical Care Medicine</h1>
+
+        <p class="subtitle">
+            A structured Critical Care learning pathway for doctors looking to
+            strengthen ICU knowledge while gaining supervised clinical exposure.
+        </p>
+
+        <div class="stats">
+            <div class="stat">12 Months</div>
+            <div class="stat">9 Months Structured Learning</div>
+            <div class="stat">3 Months ICU Training</div>
+            <div class="stat">MBBS and Above</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Key Learning Areas</h2>
+
+        <div class="grid">
+            <div class="card"><strong>Airway Management</strong></div>
+            <div class="card"><strong>Mechanical Ventilation</strong></div>
+            <div class="card"><strong>Hemodynamic Monitoring</strong></div>
+            <div class="card"><strong>Sepsis & Shock</strong></div>
+            <div class="card"><strong>POCUS</strong></div>
+            <div class="card"><strong>Central Venous Access</strong></div>
+            <div class="card"><strong>Chest Tube</strong></div>
+            <div class="card"><strong>Tracheostomy</strong></div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Why This Pathway May Suit You</h2>
+
+        <div class="grid">
+            <div class="card">Hybrid learning structure</div>
+            <div class="card">Suitable for working doctors</div>
+            <div class="card">Structured Critical Care learning</div>
+            <div class="card">Supervised ICU training</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="form-box">
+        <h2>Request Fellowship Counselling</h2>
+
+        <form id="leadForm">
+            <label>Name</label>
+            <input type="text" id="name" required>
+
+            <label>Mobile</label>
+            <input type="tel" id="mobile" required>
+
+            <label>Email</label>
+            <input type="email" id="email">
+
+            <label>Qualification</label>
+            <input type="text" id="qualification">
+
+            <label>City</label>
+            <input type="text" id="city">
+
+            <label>Program</label>
+            <input
+                type="text"
+                id="program"
+                value="Fellowship in Critical Care Medicine"
+                readonly
+            >
+
+            <button type="submit">
+                Request Counselling
+            </button>
+        </form>
+    </div>
+</section>
+
+<div class="footer">
+    Doctyn Academy
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("qualification").value =
+        params.get("qualification") || "";
+
+    document.getElementById("city").value =
+        params.get("city") || "";
+
+    document.getElementById("leadForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const lead = {
+                name: document.getElementById("name").value,
+                mobile: document.getElementById("mobile").value,
+                email: document.getElementById("email").value,
+                qualification: document.getElementById("qualification").value,
+                city: document.getElementById("city").value,
+                program: document.getElementById("program").value,
+                source: params.get("source") || "landing-page"
+            };
+
+            console.log("Lead captured:", lead);
+
+            alert("Thank you. Your counselling request has been recorded.");
+        });
+</script>
+
+</body>
+</html>
