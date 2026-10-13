@@ -292,6 +292,18 @@ def build_answer(
             f"{clean_chunk(results[0]['content'])}"
         )
 
+    if program_code == "FIM":
+        return (
+            "The Fellowship in Internal Medicine is a 12-month, "
+            "100% online structured learning program designed to strengthen "
+            "clinical assessment, diagnostic reasoning and management of common "
+            "medical conditions.\n\n"
+            "Key areas include medical emergencies, cardiovascular and respiratory "
+            "medicine, infectious diseases, endocrine and metabolic disorders, "
+            "neurology, renal medicine, gastroenterology, hematology and "
+            "ward-based clinical decision-making."
+        )
+
     if program_code == "FCCM":
         return (
             "The Fellowship in Critical Care Medicine is a 12-month, "
