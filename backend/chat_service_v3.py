@@ -191,10 +191,7 @@ def build_answer(
 
     question_lower = question.lower()
 
-    program_name = PROGRAM_NAMES.get(
-        program_code,
-        "this program"
-    )
+    program_name = PROGRAM_NAMES.get(program_code) or "Fellowship Program"
 
     combined = " ".join(
         clean_chunk(result["content"])
