@@ -292,6 +292,17 @@ def build_answer(
             f"{clean_chunk(results[0]['content'])}"
         )
 
+    if program_code == "FCCM":
+        return (
+            "The Fellowship in Critical Care Medicine is a 12-month, "
+            "100% online structured learning program for doctors who want "
+            "to build a systematic understanding of critically ill patient assessment "
+            "and management.\n\n"
+            "Key areas include airway and ventilation, haemodynamic monitoring, "
+            "shock and sepsis, organ support, emergency response, critical care "
+            "pharmacology, infection prevention, patient safety, ethics and communication."
+        )
+
     top_text = clean_chunk(results[0]["content"])
 
     if len(top_text) > 800:
