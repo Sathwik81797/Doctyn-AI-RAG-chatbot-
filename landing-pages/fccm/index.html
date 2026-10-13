@@ -232,5 +232,69 @@
         });
 </script>
 
+
+<div id="doctynChat" style="margin-top:30px;padding:20px;border:1px solid #ddd;border-radius:12px;">
+  <h3>Ask Doctyn AI about Critical Care Medicine</h3>
+
+  <div id="chatMessages" style="min-height:120px;margin-bottom:12px;"></div>
+
+  <div style="display:flex;gap:8px;">
+    <input id="chatInput" type="text" placeholder="Ask about duration, curriculum, eligibility..." style="flex:1;padding:10px;">
+    <button id="chatSend" type="button">Ask</button>
+  </div>
+</div>
+
+<script>
+let doctynSessionId = localStorage.getItem("doctyn_fccm_session") || null;
+
+async function sendDoctynMessage() {
+    const input = document.getElementById("chatInput");
+    const messages = document.getElementById("chatMessages");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    messages.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+    input.value = "";
+
+    try {
+        const response = await fetch(
+            "https://doctyn-ai-rag-chatbot-9g3grvxm0-sathwikind-7124s-projects.vercel.app/chat",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: message,
+                    session_id: doctynSessionId,
+                    page_context: "FCCM"
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.response?.session_id) {
+            doctynSessionId = data.response.session_id;
+            localStorage.setItem("doctyn_fccm_session", doctynSessionId);
+        }
+
+        messages.innerHTML += "<p><strong>Doctyn AI:</strong> " + (data.response?.answer || "No response") + "</p>";
+
+    } catch (error) {
+        messages.innerHTML += "<p><strong>Doctyn AI:</strong> Unable to connect right now.</p>";
+    }
+}
+
+document.getElementById("chatSend").addEventListener("click", sendDoctynMessage);
+
+document.getElementById("chatInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendDoctynMessage();
+    }
+});
+</script>
+
 </body>
 </html>
