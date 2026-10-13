@@ -215,14 +215,12 @@ def build_answer(
             months = match.group(1)
 
             answer = (
-                f"{program_name} has a duration of "
-                f"{months} months according to the current "
-                f"program material."
+                f"The {program_name} has a duration of {months} months."
             )
 
             if "100% online" in combined.lower():
                 answer += (
-                    " The current brochure describes the program "
+                    "\n\nThe current brochure describes the program "
                     "as 100% online with structured learning."
                 )
 
@@ -244,9 +242,34 @@ def build_answer(
 
         text = clean_chunk(max(results, key=lambda r: sum(k in r["content"].lower() for k in ["airway", "ventilation", "haemodynamic", "shock", "sepsis", "organ dysfunction", "pharmacology", "infection prevention", "patient safety"]))["content"])
 
+        topic_map = {
+            "FCCM": [
+                "Airway and ventilation",
+                "Haemodynamic monitoring",
+                "Shock and sepsis",
+                "Organ dysfunction and support",
+                "Emergency response and resuscitation",
+                "Critical care pharmacology",
+                "Infection prevention",
+                "Patient safety",
+                "Ethics and communication"
+            ]
+        }
+
+        if program_code in topic_map:
+            bullets = "\n".join(
+                f"• {item}" for item in topic_map[program_code]
+            )
+
+            return (
+                f"The {program_name} covers:\n\n"
+                f"{bullets}\n\n"
+                "It also includes concepts such as ARDS, proning, weaning, "
+                "fluid therapy, vasopressors, inotropes and arrhythmia recognition."
+            )
+
         return (
-            f"According to the current {program_name} material, "
-            f"the relevant curriculum information includes:\n\n"
+            f"According to the current {program_name} material:\n\n"
             f"{text}"
         )
 
