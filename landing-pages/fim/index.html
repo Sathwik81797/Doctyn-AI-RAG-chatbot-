@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fellowship in Internal Medicine | Doctyn Academy</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6f9fc;
+            color: #18233a;
+        }
+
+        .hero {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #5a6475;
+            max-width: 760px;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .stat {
+            background: #eef5ff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 45px 20px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid #e4e9f0;
+        }
+
+        .form-box {
+            background: white;
+            max-width: 620px;
+            margin: auto;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #e4e9f0;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccd5e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2468e5;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="container">
+        <div style="font-weight:700;color:#2468e5;">
+            DOCTYN ACADEMY
+        </div>
+
+        <h1>Fellowship in Internal Medicine</h1>
+
+        <p class="subtitle">
+            A structured Internal Medicine learning pathway for doctors looking to
+            strengthen diagnostic reasoning, ward-based decision-making and management of common medical conditions.
+        </p>
+
+        <div class="stats">
+            <div class="stat">12 Months</div>
+            <div class="stat">100% Online</div>
+            <div class="stat">Structured Learning</div>
+            <div class="stat">MBBS and Above</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Key Learning Areas</h2>
+
+        <div class="grid">
+            <div class="card"><strong>Clinical Assessment & Diagnosis</strong></div>
+            <div class="card"><strong>Common Medical Emergencies</strong></div>
+            <div class="card"><strong>Cardiovascular & Respiratory Medicine</strong></div>
+            <div class="card"><strong>Infectious & Systemic Conditions</strong></div>
+            <div class="card"><strong>Endocrine & Metabolic Disorders</strong></div>
+            <div class="card"><strong>Ward-based Clinical Decision Making</strong></div>
+            <div class="card"><strong>Neurology & Renal Medicine</strong></div>
+            <div class="card"><strong>Gastroenterology & Hematology</strong></div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Why This Pathway May Suit You</h2>
+
+        <div class="grid">
+            <div class="card">Hybrid learning structure</div>
+            <div class="card">Suitable for working doctors</div>
+            <div class="card">Structured Internal Medicine learning</div>
+            <div class="card">Case-based clinical learning</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="form-box">
+        <h2>Request Fellowship Counselling</h2>
+
+        <form id="leadForm">
+            <label>Name</label>
+            <input type="text" id="name" required>
+
+            <label>Mobile</label>
+            <input type="tel" id="mobile" required>
+
+            <label>Email</label>
+            <input type="email" id="email">
+
+            <label>Qualification</label>
+            <input type="text" id="qualification">
+
+            <label>City</label>
+            <input type="text" id="city">
+
+            <label>Program</label>
+            <input
+                type="text"
+                id="program"
+                value="Fellowship in Internal Medicine"
+                readonly
+            >
+
+            <button type="submit">
+                Request Counselling
+            </button>
+        </form>
+    </div>
+</section>
+
+<div class="footer">
+    Doctyn Academy
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("qualification").value =
+        params.get("qualification") || "";
+
+    document.getElementById("city").value =
+        params.get("city") || "";
+
+    document.getElementById("leadForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const lead = {
+                name: document.getElementById("name").value,
+                mobile: document.getElementById("mobile").value,
+                email: document.getElementById("email").value,
+                qualification: document.getElementById("qualification").value,
+                city: document.getElementById("city").value,
+                program: document.getElementById("program").value,
+                source: params.get("source") || "landing-page"
+            };
+
+            console.log("Lead captured:", lead);
+
+            alert("Thank you. Your counselling request has been recorded.");
+        });
+</script>
+
+
+<div id="doctynChat" style="margin-top:30px;padding:20px;border:1px solid #ddd;border-radius:12px;">
+  <h3>Ask Doctyn AI about Internal Medicine</h3>
+
+  <div id="chatMessages" style="min-height:120px;margin-bottom:12px;"></div>
+
+  <div style="display:flex;gap:8px;">
+    <input id="chatInput" type="text" placeholder="Ask about duration, curriculum, eligibility..." style="flex:1;padding:10px;">
+    <button id="chatSend" type="button">Ask</button>
+  </div>
+</div>
+
+<script>
+let doctynSessionId = localStorage.getItem("doctyn_fccm_session") || null;
+
+async function sendDoctynMessage() {
+    const input = document.getElementById("chatInput");
+    const messages = document.getElementById("chatMessages");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    messages.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+    input.value = "";
+
+    try {
+        const response = await fetch(
+            "https://doctyn-ai-rag-chatbot-six.vercel.app/chat",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: message,
+                    session_id: doctynSessionId,
+                    page_context: "FIM"
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.response?.session_id) {
+            doctynSessionId = data.response.session_id;
+            localStorage.setItem("doctyn_fccm_session", doctynSessionId);
+        }
+
+        messages.innerHTML += "<p><strong>Doctyn AI:</strong> " + (data.response?.answer || "No response") + "</p>";
+
+    } catch (error) {
+        messages.innerHTML += "<p><strong>Doctyn AI:</strong> Unable to connect right now.</p>";
+    }
+}
+
+document.getElementById("chatSend").addEventListener("click", sendDoctynMessage);
+
+document.getElementById("chatInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendDoctynMessage();
+    }
+});
+</script>
+
+</body>
+</html>
