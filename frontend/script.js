@@ -104,7 +104,7 @@ async function sendChat() {
 
     try {
         const response = await fetch(
-            "/chat",
+            "https://doctyn-ai-rag-chatbot-9g3grvxm0-sathwikind-7124s-projects.vercel.app/chat",
             {
                 method: "POST",
                 headers: {
